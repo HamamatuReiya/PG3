@@ -1,30 +1,48 @@
 #include<stdio.h>
-
-template <typename Type1>
-Type1 Min(Type1 a, Type1 b) {
-	if (a < b) {
-		return a;
-	}
-	else
-	{
-		return b;
-	}
-}
-
-template<>
-char Min<char>(char a, char b) {
-	printf("数字以外は代入できません");
-	return a;
-}
+#include <list>
+#include <string>
+#include <iostream>
+using namespace std;
 
 int main() {
 
-	char a = 'A';
-	char b = 'B';
-	printf("%d\n", Min<int>(114, 514));
-	printf("%f\n", Min<float>(11.4f, 51.4f));
-	printf("%f\n", Min<double>(11.4f, 51.4f));
-	Min<char>(a, b);
+	list<const char*> lst{
+		"Tokyo", "Kand", "Akihabara", "Okachimachi", "Ueno", "Uguisudani", "Nippori",
+		"Tabata", "Komagome", "Sugamo", "Otsuka", "Ikebukuro", "Mejiro", "Takadanobaba", "Shin-Okubo",
+		"Shinjuku", "Yoyogi", "Harajuku", "Shibuya", "Ebisu", "Meguro", "Gotanda", "Osaki", "Shinagawa",
+		"Tamachi","Hamamatutsucho", "Shimbashi", "Yurakucho",
+	};
+
+	//1970
+	printf("1970年\n");
+	for (auto itr = lst.begin(); itr != lst.end(); ++itr) {
+		std::cout << *itr << "\n";
+	}
+	printf("\n");
+	//2019
+	for (auto itr = lst.begin(); itr != lst.end(); ++itr) {
+		if (*itr == "Tabata") {
+			itr = lst.insert(itr, "Nishi-Nippori");
+			++itr;
+		}
+	}
+	printf("2019年\n");
+	for (auto itr = lst.begin(); itr != lst.end(); ++itr) {
+		std::cout << *itr << "\n";
+	}
+	printf("\n");
+	//2022
+	for (auto itr = lst.begin(); itr != lst.end(); ++itr) {
+		if (*itr == "Tamachi") {
+			itr = lst.insert(itr, "Takanawa Gateway");
+			++itr;
+		}
+	}
+
+	printf("2022年\n");
+	for (auto itr = lst.begin(); itr != lst.end(); ++itr) {
+		std::cout << *itr << "\n";
+	}
 
 	return 0;
 }
