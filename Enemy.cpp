@@ -9,19 +9,10 @@ void (Enemy::* Enemy::spPhaseTable[])() = {
 
 void Enemy::Update()
 {
-	switch (phase_) {
-	case Phase::kApproach:
-		(this->*spPhaseTable[0])();
-		break;
-
-	case Phase::kFire:
-		(this->*spPhaseTable[1])();
-		break;
-
-	case Phase::kLeave:
-		(this->*spPhaseTable[2])();
-		break;
+	for (int i = 0; i < 3; i++) {
+		(this->*spPhaseTable[i])();
 	}
+	
 }
 
 void Enemy::Approach()
