@@ -1,48 +1,26 @@
 #include<stdio.h>
-#include <list>
-#include <string>
-#include <iostream>
-using namespace std;
+#include<thread>
+
+void Thread1() {
+	printf("thread1\n");
+}
+
+void Thread2() {
+	printf("thread2\n");
+}
+
+void Thread3() {
+	printf("thread3\n");
+}
 
 int main() {
+	std::thread th1(Thread1);
+	std::thread th2(Thread2);
+	std::thread th3(Thread3);
 
-	list<const char*> lst{
-		"Tokyo", "Kand", "Akihabara", "Okachimachi", "Ueno", "Uguisudani", "Nippori",
-		"Tabata", "Komagome", "Sugamo", "Otsuka", "Ikebukuro", "Mejiro", "Takadanobaba", "Shin-Okubo",
-		"Shinjuku", "Yoyogi", "Harajuku", "Shibuya", "Ebisu", "Meguro", "Gotanda", "Osaki", "Shinagawa",
-		"Tamachi","Hamamatutsucho", "Shimbashi", "Yurakucho",
-	};
-
-	//1970
-	printf("1970”N\n");
-	for (auto itr = lst.begin(); itr != lst.end(); ++itr) {
-		std::cout << *itr << "\n";
-	}
-	printf("\n");
-	//2019
-	for (auto itr = lst.begin(); itr != lst.end(); ++itr) {
-		if (*itr == "Tabata") {
-			itr = lst.insert(itr, "Nishi-Nippori");
-			++itr;
-		}
-	}
-	printf("2019”N\n");
-	for (auto itr = lst.begin(); itr != lst.end(); ++itr) {
-		std::cout << *itr << "\n";
-	}
-	printf("\n");
-	//2022
-	for (auto itr = lst.begin(); itr != lst.end(); ++itr) {
-		if (*itr == "Tamachi") {
-			itr = lst.insert(itr, "Takanawa Gateway");
-			++itr;
-		}
-	}
-
-	printf("2022”N\n");
-	for (auto itr = lst.begin(); itr != lst.end(); ++itr) {
-		std::cout << *itr << "\n";
-	}
+	th1.join();
+	th2.join();
+	th3.join();
 
 	return 0;
 }
