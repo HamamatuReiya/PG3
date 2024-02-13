@@ -127,7 +127,15 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Earphone.cpp" />
+    <ClCompile Include="Headphone.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="Transducer.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Earphone.h" />
+    <ClInclude Include="Headphone.h" />
+    <ClInclude Include="Transducer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
