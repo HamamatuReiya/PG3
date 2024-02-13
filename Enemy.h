@@ -15,7 +15,7 @@ public:
 	/// </summary>
 	void Update();
 
-private:
+public:
 	// Ú‹ß‚·‚é
 	void Approach();
 	// ’e”­Ë
