@@ -9,10 +9,7 @@ void (Enemy::* Enemy::spPhaseTable[])() = {
 
 void Enemy::Update()
 {
-	for (int i = 0; i < 3; i++) {
-		(this->*spPhaseTable[i])();
-	}
-	
+	(this->*spPhaseTable[static_cast<size_t>(phase_)])();
 }
 
 void Enemy::Approach()
